@@ -11,6 +11,12 @@ from plotly.graph_objs import Bar
 from sklearn.externals import joblib
 from sqlalchemy import create_engine
 
+from os import path
+from PIL import Image
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+import matplotlib.pyplot as plt
+
+
 
 app = Flask(__name__)
 
@@ -42,6 +48,12 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    
+#     text = " ".join(txt for txt in df['message'])
+#     stopwords = set(STOPWORDS)
+#     stopwords.update(['people', 'one', 'thank', 'said', 'new', 'state', 'area', 'will'])
+#     wordcloud = WordCloud(stopwords=stopwords, background_color="white", width=1140, height=450).generate(text)
+#     wordcloud.to_file("../app/templates/cloud1.png")
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
