@@ -62,11 +62,25 @@
     {% for id in ids %}
         <div id="{{id}}"></div>
     {% endfor %}
-  
-<!--   	<img src="./cloud.png" alt="Word Cloud"> -->
-  <img src="https://www.ocf.berkeley.edu/~alnamkani/cloud1.png" alt="User Image">
-
 </div>
+
+    <div class="col-xs-12" style="height:50px;"></div>
+  
+    <div class="row">
+
+      <div class="text-center">
+          <img src="https://www.ocf.berkeley.edu/~alnamkani/cloud1.png" class="rounded mt-5" alt="Word Cloud">
+      </div>
+  	</div>
+  
+  <div class="col-xs-12" style="height:50px;"></div>
+
+    <div class="row">
+      <div class="text-center">
+          <img src="https://www.ocf.berkeley.edu/~alnamkani/heatmap.png" class="rounded mt-5 mb-5" alt="heatmap">
+      </div>
+  	</div>
+
 
 <script type="text/javascript">
     const graphs = {{graphJSON | safe}};
