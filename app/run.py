@@ -83,7 +83,7 @@ def index():
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
     
     # render web page with plotly graphs
-    return render_template('master.html', ids=ids, graphJSON=graphJSON)
+    return render_template('master_copy.html', ids=ids, graphJSON=graphJSON)
 
 
 # web page that handles user query and displays model results
@@ -98,7 +98,7 @@ def go():
 
     # This will render the go.html Please see that file. 
     return render_template(
-        'go.html',
+        'go_copy.html',
         query=query,
         classification_result=classification_results
     )
