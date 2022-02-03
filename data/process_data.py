@@ -4,6 +4,19 @@ from sqlalchemy import create_engine
 
 
 def load_data(messages_filepath, categories_filepath):
+    """
+        This function loads the data from two database 
+        and merge them into one database. 
+        
+        input:
+        messages_filepath: the path to the message dataset
+        categories_filepath:the path to the categories dataset
+        
+        return:
+        X: the features that we will use to train the model
+        Y: the target variable 
+        Y.columns.values: the name of the cloumns in Y
+    """
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = pd.merge(messages, categories, on='id')
@@ -24,12 +37,18 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    """
+        This function drop duplicates entries, and drop empty entries. 
+    """
     df.drop_duplicates(inplace=True)
     df.dropna(subset=['aid_related'], inplace=True)
     return df
 
 
 def save_data(df, database_filename):
+    """
+        this function saves the the database to a file 
+    """
     engine = create_engine(f"sqlite:///{database_filename}")
     df.to_sql('table_one', engine, index=False)  
 
