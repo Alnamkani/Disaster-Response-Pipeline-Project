@@ -42,6 +42,7 @@ def clean_data(df):
     """
     df.drop_duplicates(inplace=True)
     df.dropna(subset=['aid_related'], inplace=True)
+    df.replace({2: 1}, inplace=True)
     return df
 
 
@@ -61,10 +62,11 @@ def main():
         print('Loading data...\n    MESSAGES: {}\n    CATEGORIES: {}'
               .format(messages_filepath, categories_filepath))
         df = load_data(messages_filepath, categories_filepath)
+        
 
         print('Cleaning data...')
         df = clean_data(df)
-        
+                
         print('Saving data...\n    DATABASE: {}'.format(database_filepath))
         save_data(df, database_filepath)
         
