@@ -75,6 +75,24 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+        {
+            'data': [
+                Bar(
+                    x=['Related', 'Not Related'],
+                    y=[df.related.sum(), len(df) - df.related.sum()]
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Related Responses',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Related Or Not"
+                }
+            }
         }
     ]
     
